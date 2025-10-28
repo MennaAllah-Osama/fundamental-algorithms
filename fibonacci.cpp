@@ -1,13 +1,16 @@
 //
 // Created by mo062 on 10/28/2025.
 //
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 // Fibonacci using recursion
-int fibonacciRecursive(int n) {
-    if (n <= 1) return n;
-    return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
+int fib_recursive(int n){
+    if (n==0 || n==1)
+        return n;
+    else
+        return fib_recursive(n-1)+ fib_recursive(n-2);
+
 }
 
 // Fibonacci using iteration
@@ -23,7 +26,9 @@ int fibonacciIterative(int n) {
 }
 
 int main() {
-    int n = 10;
-    cout << "Fibonacci(" << n << ") = " << fibonacciIterative(n) << endl;
+    int n ;
+     cin>>n;
+   cout<< "recusion"<<fib_recursive(n)<<endl;
+   cout << "Fibonacci(" << n << ") = " << fibonacciIterative(n) << endl;
     return 0;
 }
