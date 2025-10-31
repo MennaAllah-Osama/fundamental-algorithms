@@ -46,6 +46,20 @@ long long fibonacciMatrixMethod(long long n) {
     return mat1[0][0];
 }
 
+long long fib_dp(int n){
+    vector<long long> dp(n + 1);
+    dp[0] = 0;
+
+    if(n > 0)
+        dp[1] = 1;
+
+    for(int i = 2; i <= n; i++){
+        dp[i] = dp[i-1] + dp[i-2];
+    }
+
+    return dp[n];
+}
+
 
 
 int main() {
@@ -64,7 +78,7 @@ int main() {
             int n ;
             cout << "Enter n: ";
             cin>>n;
-            cout<< "recursion"<<fib_recursive(n)<<endl;
+            cout<< "recursion "<<fib_recursive(n)<<endl;
         }
         else if (choice==2){
                 int n;
@@ -73,8 +87,12 @@ int main() {
                 cout << "Matrix method result: " << fibonacciMatrixMethod(n) << endl;
         }
         else if (choice==3){
-
+            int n;
+            cout << "Enter n: ";
+            cin >> n;
+            cout << "Dynamic Programming result: " << fib_dp(n) << endl;
         }
+
         else if (choice == 0){
             break;
         }
