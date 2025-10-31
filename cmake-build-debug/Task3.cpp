@@ -70,6 +70,21 @@ struct Heap{
         heapify(index);
         return min;
     }
+    vector<int> heapSort() {
+         vector<int> temp = arr;
+        vector<int> sorted;
+
+
+        while (!arr.empty()) {
+            int maxVal = extractMax();
+            sorted.push_back(maxVal);
+        }
+
+         arr = temp;
+
+         reverse(sorted.begin(), sorted.end());
+        return sorted;
+    }
 
 };
 struct PriorityQueue {
@@ -105,7 +120,10 @@ int main() {
                 cout << "1. Insert\n";
                 cout << "2. Extract Max\n";
                 cout << "3. Extract Min\n";
-                cout << "4. Back to Main Menu\n";
+                cout << "4.Heap Sort\n";
+                cout << "5. Back to Main Menu\n";
+
+
                 cout << "Choose: ";
                 cin >> choice;
 
@@ -119,7 +137,16 @@ int main() {
                 } else if (choice == 3) {
                     if (heap.arr.empty()) cout << "Heap empty!\n";
                     else cout << "Min: " << heap.extractMin() << endl;
-                } else if (choice == 4) break;
+                }else if (choice == 4) {
+                    if (heap.arr.empty()) cout << "Heap empty!\n";
+                    else {
+                        vector<int> sorted = heap.heapSort();
+                        cout << "Sorted elements: ";
+                        for (int x : sorted) cout << x << " ";
+                        cout << endl;
+                    }
+                }
+                else if (choice == 5) break;
                 else cout << "Invalid!\n";
             }
         } else if (mainChoice == 2) {
